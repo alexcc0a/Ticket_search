@@ -13,8 +13,7 @@ class TicketRepositoryTest {
     TicketRepository repositoryEmpty = new TicketRepository();
     TicketRepository repositoryWithOneTicket = new TicketRepository();
     TicketRepository repositoryWithTenTicket = new TicketRepository();
-
-    // тестовые данные
+    
     TicketData ticketOne = new TicketData(1, 25_068, "DME", "LED", 95);
     TicketData ticketTwo = new TicketData(2, 17_938, "SVO", "LED", 90);
     TicketData ticketThree = new TicketData(3, 14_871, "VKO", "RVH", 80);

@@ -15,19 +15,14 @@ import java.util.Arrays;
 public class TicketManager {
     private TicketRepository repository = new TicketRepository();
 
-    //методы репо
-    //добавление билета в репо
     public void addTicket(TicketData addTicket) {
         repository.addTicket(addTicket);
     }
 
-    // удаление билета из репозитория по id
     public void removeById(int removeId) {
         repository.removeById(removeId);
     }
 
-    // методы менеджера
-    // поиск билетов по аэропортам вылета-прилета
     public TicketData[] findAll(String fromInput, String toInput) {
         TicketData[] results = new TicketData[0];
         for (TicketData ticket : repository.findAll()) {
@@ -46,7 +41,6 @@ public class TicketManager {
         return results;
     }
 
-    // сравнение по аэропортам прилета-вылета
     public boolean matchesFromTo(TicketData ticket, String fromInput, String toInput) {
         boolean matchesFrom = ticket.getFrom().toUpperCase().contains(fromInput.toUpperCase());
         boolean matchesTo = ticket.getTo().toUpperCase().contains(toInput.toUpperCase());

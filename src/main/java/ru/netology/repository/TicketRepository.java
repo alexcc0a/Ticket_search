@@ -13,12 +13,10 @@ import ru.netology.exception.NotFoundException;
 public class TicketRepository {
     private TicketData[] tickets = new TicketData[0];
 
-    // получить все билеты
     public TicketData[] findAll() {
         return getTickets();
     }
 
-    // добавление билета в репозиторий
     public void addTicket(TicketData addTicket) {
         if (findById(addTicket.getId()) != null) {
             throw new AlreadyExistsException("Билет с ID: " + addTicket.getId() + " уже добавлен в репозиторий!!!");
@@ -29,7 +27,6 @@ public class TicketRepository {
         tickets = tmp;
     }
 
-    // удаление билета из репозитория по id
     public void removeById(int removeId) {
         if (findById(removeId) == null) {
             throw new NotFoundException("Билет с ID: " + removeId + " не найден!!!");
@@ -44,7 +41,6 @@ public class TicketRepository {
         tickets = tmp;
     }
 
-    //поиска билета в репозитории по его id
     public TicketData findById(int findId) {
         for (TicketData ticket : tickets) {
             if (ticket.getId() == findId) {
